@@ -1,0 +1,96 @@
+{
+  "projectType": "application",
+  "root": "apps/cpu-monitor",
+  "sourceRoot": "apps/cpu-monitor/src",
+  "prefix": "cpu-monitor",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/cpu-monitor",
+        "index": "apps/cpu-monitor/src/index.html",
+        "main": "apps/cpu-monitor/src/main.ts",
+        "polyfills": "apps/cpu-monitor/src/polyfills.ts",
+        "tsConfig": "apps/cpu-monitor/tsconfig.app.json",
+        "assets": [
+          "apps/cpu-monitor/src/favicon.ico",
+          "apps/cpu-monitor/src/assets"
+        ],
+        "styles": ["apps/cpu-monitor/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/cpu-monitor/src/environments/environment.ts",
+              "with": "apps/cpu-monitor/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "cpu-monitor:build:production"
+        },
+        "development": {
+          "browserTarget": "cpu-monitor:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/cpu-monitor/proxy.conf.json"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "cpu-monitor:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/cpu-monitor/src/**/*.ts",
+          "apps/cpu-monitor/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/cpu-monitor"],
+      "options": {
+        "jestConfig": "apps/cpu-monitor/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

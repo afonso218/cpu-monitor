@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "cpu-monitor": "apps/cpu-monitor",
+    "cpu-monitor-e2e": "apps/cpu-monitor-e2e"
+  }
+}

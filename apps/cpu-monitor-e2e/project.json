@@ -1,0 +1,28 @@
+{
+  "root": "apps/cpu-monitor-e2e",
+  "sourceRoot": "apps/cpu-monitor-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/cpu-monitor-e2e/cypress.json",
+        "devServerTarget": "cpu-monitor:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "cpu-monitor:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/cpu-monitor-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["cpu-monitor"]
+}
