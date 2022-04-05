@@ -1,6 +1,20 @@
-# CPU Monitor
+# CPU Monitor App
+
+## Table of Contents
+
+---
+
+- [Technology](#technology)
+- [Installation](#installation)
+- [Load Monitoring Web Application](#load-monitoring-web-application)
+- [Product requirements](#product-requirements)
+- [Engineering requirements](#engineering-requirements)
+- [Screenshots](#screenshots)
+- [Future Work](#future-work)
 
 ## Technology
+
+---
 
 - Nx (Repo aggregation)
 - NestJS (Backend)
@@ -9,25 +23,26 @@
 - ng2-Charts / chart.js (Frontend - Charts)
 - RxJS (Data Management)
 
-## TODO
-
-- Fix alerts
-- Add unit tests api
-- Add unit tests app
-- Error handler
-
-# Future Work: Improvements / New Features
-
-- Backend should be responsible to arrange value and date (not relay on the client date)
-- Add destroy to observables (avoid memory leaking)
-- Improve responsive
-- Translation
-- Test with windows
-- e2e tests
+## Installation
 
 ---
 
-## Load Monitoring Web Application - POC
+The following command will install and launch (app and api)
+
+```bash
+$ npm ci
+$ npm start
+```
+
+The following command will run all unit tests (app and api)
+
+```bash
+$ npm test
+```
+
+## Load Monitoring Web Application
+
+---
 
 This application will display time-series data.
 A user should be able to view your application to answer the following questions about their computer:
@@ -37,7 +52,9 @@ A user should be able to view your application to answer the following questions
 - Has my computer been under heavy CPU load for 2 minutes or more? When? How many times?
 - Has my computer recovered from heavy CPU load? When? How many times?
 
-## Product requirements:
+## Product requirements
+
+---
 
 - The front-end application should communicate with a local back-end service to retrieve CPU load average information from your computer (see below).
 - The front-end application should retrieve CPU load information every 10 seconds.
@@ -45,7 +62,9 @@ A user should be able to view your application to answer the following questions
 - The front-end application should alert the user to high CPU load.
 - The front-end application should alert the user when CPU load has recovered.
 
-## Engineering requirements:
+## Engineering requirements
+
+---
 
 - The alerting logic in your application should have tests.
 - The back-end service does not need to persist data.
@@ -55,3 +74,23 @@ Thresholds for high load and recovery:
 
 - A CPU is considered under high average load when it has exceeded 1 for 2 minutes or more.
 - A CPU is considered recovered from high average load when it drops below 1 for 2 minutes or more.
+
+## Screenshots
+
+---
+
+![Screen 1](/images/image1.png)
+![Screen 2](/images/image2.png)
+![Screen 3](/images/image3.png)
+![Screen 4](/images/image4.png)
+
+## Future Work
+
+---
+
+- Backend should be responsible to arrange value and date (not relay on the client date)
+- Add destroy to observables (avoid memory leaking)
+- Improve responsive
+- Translation
+- Test with windows
+- e2e tests

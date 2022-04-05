@@ -8,7 +8,7 @@ export class CpuController {
   constructor(private readonly cpuService: CpuService) {}
 
   @Get()
-  public getCurrentCPU(): AverageCPU {
+  public getCurrentCPU(): Promise<AverageCPU> {
     return this.cpuService.getCurrentCPU();
   }
 }
