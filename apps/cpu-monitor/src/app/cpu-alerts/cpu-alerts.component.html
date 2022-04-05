@@ -1,0 +1,53 @@
+<mat-card fxLayout="column" fxLayoutAlign="center" fxLayoutGap="10px">
+  <mat-card-header fxLayoutAlign="center center">
+    <mat-card-title>
+      Alerts
+      <ng-container *ngIf="this.data.length === 0">
+        <mat-icon>notifications</mat-icon>
+      </ng-container>
+      <ng-container *ngIf="this.data.length > 0">
+        <mat-icon matBadge="{{ this.data.length }}" matBadgeSize="small">
+          notifications
+        </mat-icon>
+      </ng-container>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div
+      *ngIf="data.length === 0"
+      class="entry"
+      fxFill
+      fxLayout="row"
+      fxLayoutGap="10px"
+    >
+      <div fxFlex="90" fxLayout="column">
+        <span>So far so good!</span>
+      </div>
+      <div fxFlex="10">
+        <mat-icon> thumb_up </mat-icon>
+      </div>
+    </div>
+
+    <div
+      class="entry"
+      fxFill
+      fxLayout="row"
+      fxLayoutGap="10px"
+      *ngFor="let entry of data"
+    >
+      <div fxFlex="80" fxLayout="column">
+        <span>{{ entry.message }}</span>
+        <small>{{ convertToTimeAgo(entry.date) }}</small>
+      </div>
+
+      <div fxFlex="20">
+        <div class="box alert" *ngIf="entry.type === alertTypes.ALERT">
+          Alert
+        </div>
+
+        <div class="box recover" *ngIf="entry.type === alertTypes.OK">OK</div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

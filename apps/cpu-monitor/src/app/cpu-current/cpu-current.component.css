@@ -1,0 +1,16 @@
+mat-card-content {
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+
+.alert {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.medium {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+.normal {
+  background-color: rgb(0, 255, 0, 0.3);
+}

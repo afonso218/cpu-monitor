@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/cpu-monitor",
         "index": "apps/cpu-monitor/src/index.html",
@@ -17,7 +19,10 @@
           "apps/cpu-monitor/src/favicon.ico",
           "apps/cpu-monitor/src/assets"
         ],
-        "styles": ["apps/cpu-monitor/src/styles.css"],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/cpu-monitor/src/styles.css"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -85,7 +90,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/cpu-monitor"],
+      "outputs": [
+        "coverage/apps/cpu-monitor"
+      ],
       "options": {
         "jestConfig": "apps/cpu-monitor/jest.config.js",
         "passWithNoTests": true

@@ -1,0 +1,20 @@
+<mat-card
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  fxLayoutGap="10px"
+  [ngClass]="valueClass"
+>
+  <mat-card-header>
+    <mat-card-title>
+      Current Usage
+      <mat-icon>speed</mat-icon>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <span *ngIf="value < 0">-</span>
+    <span *ngIf="value >= 0" class="value">
+      {{ value * 100 | number: '1.2-2' }}
+    </span>
+  </mat-card-content>
+</mat-card>

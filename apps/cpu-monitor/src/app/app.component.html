@@ -1,9 +1,21 @@
-<div style="text-align: center">
-  <h1>Welcome to cpu-monitor!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Fast and Extensible Build System"
-  />
+<div class="bar">
+  <mat-toolbar color="primary" fxLayoutAlign="center center">
+    <span>Welcome to CPU Monitor 💻</span>
+  </mat-toolbar>
+  <mat-toolbar *ngIf="error" color="warn" fxLayoutAlign="center center">
+    <small>
+      We had a problem connecting to the server 😞. We'll retry shortly.
+    </small>
+  </mat-toolbar>
 </div>
-<div>Message: {{ hello$ | async | json }}</div>
+
+<div class="container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="10px">
+  <div fxFlex="75">
+    <cpu-history [current$]="current$"></cpu-history>
+  </div>
+
+  <div fxFlex="25" fxLayoutGap="10px" fxLayout="column">
+    <cpu-current [current$]="current$"></cpu-current>
+    <cpu-alerts [current$]="current$"></cpu-alerts>
+  </div>
+</div>

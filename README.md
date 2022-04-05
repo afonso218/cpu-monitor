@@ -1,105 +1,57 @@
+# CPU Monitor
 
+## Technology
 
-# CpuMonitor
+- Nx (Repo aggregation)
+- NestJS (Backend)
+- Angular / Typescript (Frontend)
+- Angular Material (Frontend - UI Components)
+- ng2-Charts / chart.js (Frontend - Charts)
+- RxJS (Data Management)
 
-This project was generated using [Nx](https://nx.dev).
+## TODO
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+- Fix alerts
+- Add unit tests api
+- Add unit tests app
+- Error handler
 
-🔎 **Smart, Fast and Extensible Build System**
+# Future Work: Improvements / New Features
 
-## Quick Start & Documentation
+- Backend should be responsible to arrange value and date (not relay on the client date)
+- Add destroy to observables (avoid memory leaking)
+- Improve responsive
+- Translation
+- Test with windows
+- e2e tests
 
-[Nx Documentation](https://nx.dev/angular)
+---
 
-[10-minute video showing all Nx features](https://nx.dev/getting-started/intro)
+## Load Monitoring Web Application - POC
 
-[Interactive Tutorial](https://nx.dev/tutorial/01-create-application)
+This application will display time-series data.
+A user should be able to view your application to answer the following questions about their computer:
 
-## Adding capabilities to your workspace
+- What is my computer's current average CPU load?
+- How did the average CPU load change over a 10 minute window?
+- Has my computer been under heavy CPU load for 2 minutes or more? When? How many times?
+- Has my computer recovered from heavy CPU load? When? How many times?
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+## Product requirements:
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+- The front-end application should communicate with a local back-end service to retrieve CPU load average information from your computer (see below).
+- The front-end application should retrieve CPU load information every 10 seconds.
+- The front-end application should maintain a 10 minute window of historical CPU load information.
+- The front-end application should alert the user to high CPU load.
+- The front-end application should alert the user when CPU load has recovered.
 
-Below are our core plugins:
+## Engineering requirements:
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+- The alerting logic in your application should have tests.
+- The back-end service does not need to persist data.
+- Please write up a small explanation of how you would extend or improve your application design if you were building this for production.
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+Thresholds for high load and recovery:
 
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are shareable across libraries and applications. They can be imported from `@cpu-monitor/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+- A CPU is considered under high average load when it has exceeded 1 for 2 minutes or more.
+- A CPU is considered recovered from high average load when it drops below 1 for 2 minutes or more.

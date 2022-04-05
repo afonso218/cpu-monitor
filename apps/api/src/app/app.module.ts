@@ -1,11 +1,10 @@
+import { CpuController } from './cpu.controller';
+import { CpuService } from './cpu.service';
 import { Module } from '@nestjs/common';
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 
 @Module({
   imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [CpuController],
+  providers: [CpuService],
 })
 export class AppModule {}
