@@ -90,7 +90,7 @@ Thresholds for high load and recovery:
 
 - Backend should be responsible to arrange value and date (not relay on the client date)
 - Add destroy to observables (avoid memory leaking)
+- Test with windows
 - Improve responsive
 - Translation
-- Test with windows
 - e2e tests

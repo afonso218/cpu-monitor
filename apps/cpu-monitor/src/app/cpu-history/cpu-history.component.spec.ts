@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CpuHistoryComponent } from './cpu-history.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { NgChartsModule } from 'ng2-charts';
 
 describe('CpuHistoryComponent', () => {
   let component: CpuHistoryComponent;
@@ -8,9 +11,9 @@ describe('CpuHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpuHistoryComponent ]
-    })
-    .compileComponents();
+      declarations: [CpuHistoryComponent],
+      imports: [MatCardModule, MatIconModule, NgChartsModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

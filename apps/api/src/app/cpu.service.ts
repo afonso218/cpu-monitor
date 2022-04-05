@@ -1,8 +1,8 @@
 import * as os from 'os';
-import * as osu from 'node-os-utils';
 
 import { AverageCPU } from '@cpu-monitor/api-interfaces';
 import { Injectable } from '@nestjs/common';
+import { cpu } from 'node-os-utils';
 
 @Injectable()
 export class CpuService {
@@ -20,7 +20,7 @@ export class CpuService {
     const date = new Date();
     let value: number;
     if (this.isWindows) {
-      value = await osu.usage();
+      value = await cpu.usage();
     } else {
       value = os.loadavg()[0] / os.cpus().length;
     }

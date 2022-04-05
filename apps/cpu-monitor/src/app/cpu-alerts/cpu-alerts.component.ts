@@ -22,7 +22,12 @@ export class CpuAlertsComponent implements OnInit {
   /**
    * Alert Time Hold (configurable) - 2 minutes
    */
-  @Input() public alertThreshold = 2000; //120000;
+  @Input() public alertThreshold = 120000;
+
+  /**
+   * Alert Time Hold (configurable) - 2 minutes
+   */
+  @Input() public maxNumberOfAlerts = 20;
 
   /**
    * Alerts data
@@ -68,9 +73,12 @@ export class CpuAlertsComponent implements OnInit {
           type: isHigh ? AlertType.ALERT : AlertType.OK,
           date: data.date,
           message: isHigh
-            ? `CPU under high average load!`
-            : `CPU recovered from high average load.`,
+            ? 'CPU under high average load!'
+            : 'CPU recovered from high average load.',
         });
+        if (this.data.length > this.maxNumberOfAlerts) {
+          this.data.pop();
+        }
       }
     }
   }
@@ -104,13 +112,13 @@ export class CpuAlertsComponent implements OnInit {
   }
 }
 
-interface Alert {
+export interface Alert {
   type: AlertType;
   date: Date;
   message: string;
 }
 
-enum AlertType {
+export enum AlertType {
   ALERT = 'alert',
   OK = 'ok',
 }
