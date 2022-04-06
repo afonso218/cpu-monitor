@@ -5,6 +5,7 @@
   <mat-toolbar *ngIf="error" color="warn" fxLayoutAlign="center center">
     <small>
       We had a problem connecting to the server 😞. We'll retry shortly.
+      <mat-icon matTooltip="{{ error | json }}">bug_report</mat-icon>
     </small>
   </mat-toolbar>
 </div>

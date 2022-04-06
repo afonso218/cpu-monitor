@@ -79,10 +79,11 @@ Thresholds for high load and recovery:
 
 ---
 
-![Screen 1](/images/image1.png)
-![Screen 2](/images/image2.png)
-![Screen 3](/images/image3.png)
-![Screen 4](/images/image4.png)
+![Screen 1 - Good cpu usage](/images/image1.png)
+![Screen 2 - Medium cpu usage](/images/image2.png)
+![Screen 3 - High cpu usage](/images/image3.png)
+![Screen 4 - Alerts notifications](/images/image4.png)
+![Screen 5 - Fail to connect to the server error](/images/image5.png)
 
 ## Future Work
 

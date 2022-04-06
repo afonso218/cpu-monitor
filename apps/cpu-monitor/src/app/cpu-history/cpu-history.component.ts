@@ -1,7 +1,6 @@
-import { ChartConfiguration, ChartType } from 'chart.js';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-
 import { AverageCPU } from '@cpu-monitor/api-interfaces';
+import { ChartConfiguration, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { Observable } from 'rxjs';
 
@@ -81,8 +80,8 @@ export class CpuHistoryComponent implements OnInit {
    * @param entry
    */
   private add(entry: AverageCPU): void {
-    this.discardOldData();
     this.history.push(entry);
+    this.discardOldData();
   }
 
   /**

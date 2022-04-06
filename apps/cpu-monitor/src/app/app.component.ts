@@ -1,8 +1,7 @@
-import { Subject, catchError, mergeMap, of, timer } from 'rxjs';
-
-import { AverageCPU } from '@cpu-monitor/api-interfaces';
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { AverageCPU } from '@cpu-monitor/api-interfaces';
+import { catchError, mergeMap, of, Subject, timer } from 'rxjs';
 
 @Component({
   selector: 'cpu-monitor-root',
@@ -46,7 +45,7 @@ export class AppComponent {
       .subscribe((current: AverageCPU) => {
         this.error = '';
         this.current$.next({
-          value: current.value + 0.5,
+          value: current.value,
           date: new Date(current.date),
         });
       });
